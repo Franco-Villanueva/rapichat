@@ -1,0 +1,34 @@
+/* chat.component.css */
+
+.chat-container {
+    max-width: 400px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .message strong {
+    color: #007bff;
+  }
+  
+  .message-input {
+    margin-top: 10px;
+  }
+  
+  .message-input form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message-input input,
+  .message-input button {
+    margin-bottom: 5px;
+  }
+  
+  /* Ajusta los estilos según tus necesidades */
+  
