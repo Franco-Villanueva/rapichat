@@ -1,0 +1,11 @@
+<h1>Bienvenido a la aplicación de chat</h1>
+
+<!-- Unirse a Sala con input -->
+<div>
+  <label for="salaIdInput">Número de Sala:</label>
+  <input id="salaIdInput" [(ngModel)]="salaId" placeholder="Ingrese el número de sala"(keyup.enter)="unirseASala()">
+  <button (click)="unirseASala()">Unirse a Sala</button>
+</div>
+
+<!-- Crear Sala -->
+<button (click)="crearSala()">Crear Sala</button>

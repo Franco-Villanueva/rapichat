@@ -1,20 +1,31 @@
 <div class="chat-container">
-    <div *ngFor="let chatMessage of chatMessages" class="message">
-      <ng-container *ngIf="isUserNameSet">
-        <strong>{{ chatMessage.user }}:</strong> {{ chatMessage.message }}
-      </ng-container>
-    </div>
-  
-    <div *ngIf="!isUserNameSet" class="message-input">
+
+    @if (!isUserNameSet) {
+      <div class="message-input">
       <form (submit)="setUserName()">
         <label>Nombre:</label>
         <input [(ngModel)]="userName" name="userName" placeholder="Ingresa tu nombre" required>
         <button type="submit">Guardar Nombre</button>
       </form>
     </div>
-  
-    <div *ngIf="isUserNameSet" class="message-input">
-      <input [(ngModel)]="message" placeholder="Escribe un mensaje...">
-      <button (click)="sendMessage()">Enviar</button>
+    }
+    
+    @if (isUserNameSet) {
+      <h2>Sala N°{{path}}</h2>
+    <div class="message">
+      
+      @for (chatMessage of chatMessages; track chatMessage.message) {
+        <div class="mssg">
+        <strong>{{ chatMessage.user }}</strong> <span>{{ chatMessage.message }}</span>
+        </div>
+      }
     </div>
+    
+    
+      <div class="message-input">
+      <input [(ngModel)]="message" placeholder="Escribe un mensaje..."  (keyup.enter)="sendMessage()">
+      <button (click)="sendMessage()" >Enviar</button>
+      </div>
+    }
+    
   </div>
